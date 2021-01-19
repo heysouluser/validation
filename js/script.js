@@ -19,15 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
       if (error === 0) {
          // если ошибок в валидации нет, сразу добавляем к форме класс ._sending (и по этому классу будем что-то делать)
          form.classList.add('_sending');
-         let response = await fetch('sendmail.php', {
+         let response = fetch('sendmail.php', {
             method: 'POST',
-            headers: {
-               "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, PUT, DELETE, PATCH",
-            },
             body: formData
          });
          if(response.ok) {
-            let result = await response.json();
+            let result = response.json();
             alert(result.message);
             // при отправке очищаем данные заполненной формы
             // очищаем див с превью изображения
