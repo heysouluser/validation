@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
          form.classList.add('_sending');
          let response = await fetch('sendmail.php', {
             method: 'POST',
+            headers: {
+               "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, PUT, DELETE, PATCH",
+            },
             body: formData
          });
          if (response.ok) {
